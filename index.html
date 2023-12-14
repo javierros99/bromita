@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con Imagen de Fondo y Sonido</title>
+    <title>Not Foud</title>
+    <!-- Agrega un ícono para la pestaña (favicon) -->
+    <link rel="icon" href="assets/icono.png" type="image/x-icon">
     <style>
         body {
             margin: 0;
@@ -24,7 +26,17 @@
 <body>
     <audio autoplay controls loop>
         <source src='assets/PaloMetal.mp3' type='audio/mp3'>
-        Tu navegador no soporta el elemento de audio.
     </audio>
+     <script>
+        // Puedes agregar más scripts o interactividad aquí si es necesario
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intenta reproducir el sonido después de que el contenido se haya cargado
+            var audio = document.querySelector('audio');
+            audio.play().catch(function() {
+                // La reproducción automática puede estar bloqueada por el navegador
+                console.warn("La reproducción automática está bloqueada. El usuario debe interactuar con la página.");
+            });
+        });
+    </script>
 </body>
 </html>
