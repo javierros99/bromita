@@ -18,13 +18,8 @@
             align-items: center;
             justify-content: center;
         }
-        audio {
+       audio {
             display: none;
-        }
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -32,17 +27,15 @@
     <audio id="myAudio" loop>
         <source src='assets/PaloMetal.mp3' type='audio/mp3'>
     </audio>
-    <button onclick="toggleAudio()">Reproducir</button>
 
     <script>
-        function toggleAudio() {
+        document.addEventListener('DOMContentLoaded', function() {
             var audio = document.getElementById('myAudio');
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-        }
+            audio.play().catch(function() {
+                // La reproducción automática puede estar bloqueada por el navegador
+                console.warn("La reproducción automática está bloqueada. El usuario debe interactuar con la página.");
+            });
+        });
     </script>
 </body>
 </html>
